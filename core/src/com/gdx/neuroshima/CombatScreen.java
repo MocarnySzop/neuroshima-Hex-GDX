@@ -23,6 +23,10 @@ public class CombatScreen implements Screen {
         camera.setToOrtho(false,ScreenParams.WIDTH, ScreenParams.HEIGHT);
         stage = new Stage(new ScreenViewport(camera), neuroshima.getBatch());
         background = new Texture(Gdx.files.internal("board.jpg"));
+        Board board = new Board();
+        Hex hex = new Hex(new Texture(Gdx.files.internal("hex.jpg")));
+        board.addActor(hex);
+        stage.addActor(board);
 
     }
 
