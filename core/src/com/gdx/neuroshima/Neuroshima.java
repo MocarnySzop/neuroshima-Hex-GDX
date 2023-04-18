@@ -15,13 +15,13 @@ public class Neuroshima extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
+		setScreen(new CombatScreen(this));
 
 	}
 
 	@Override
 	public void render () {
 		super.render();
-		System.out.println("test");
 
 	}
 	
