@@ -40,7 +40,7 @@ public class CombatScreen implements Screen {
         stage.act(delta);
         stage.draw();
         batch.begin();
-        batch.draw(background,0,0);
+        batch.draw(background,ScreenParams.BOARD_X, ScreenParams.BOARD_Y,ScreenParams.BOARD_WIDTH, ScreenParams.BOARD_HEIGHT);
         batch.end();
 
 
