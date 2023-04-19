@@ -1,13 +1,10 @@
-package com.gdx.neuroshima;
+package com.gdx.neuroshima.client;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 
-public class Neuroshima extends Game {
+public class NeuroshimaGame extends Game {
 	 private SpriteBatch batch;
 	 private BitmapFont font;
 	
