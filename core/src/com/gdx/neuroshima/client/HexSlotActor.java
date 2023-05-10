@@ -19,7 +19,6 @@ public class HexSlotActor extends Actor {
         float pixelY = gridY*ScreenParams.HEX_HEIGHT * 1.03f;
         if(gridX%2 !=0){
             pixelY += 0.5*ScreenParams.HEX_HEIGHT;
-
         }
         setBounds(gridX*(0.78f*ScreenParams.HEX_WIDTH),pixelY, ScreenParams.HEX_WIDTH, ScreenParams.HEX_HEIGHT);
     }
@@ -34,7 +33,6 @@ public class HexSlotActor extends Actor {
                 getRotation(), 0, 0, texture.getWidth(), texture.getHeight(),
                 false, false);
         batch.setColor(Color.WHITE);
-
     }
 
 }

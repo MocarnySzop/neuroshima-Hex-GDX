@@ -23,26 +23,11 @@ public class CombatScreen implements Screen {
         camera.setToOrtho(false, ScreenParams.WIDTH, ScreenParams.HEIGHT);
         stage = new Stage(new ScreenViewport(camera), neuroshimaGame.getBatch());
         background = new Texture(Gdx.files.internal("board.jpg"));
-        createBoard();
-
-
-    }
-
-    void createBoard() {
-        Texture texture = new Texture(Gdx.files.internal("hexfinal2.png"));
         BoardGroup boardGroup = new BoardGroup();
-        for (int x = 0; x < 5; x++) {
-            for (int y = 0; y < 5; y++) {
-                if(x==0 && y == 0 || x == 0 && y == 4 || x==1 && y == 4 || x == 4 && y == 4 || x== 4 && y == 0 || x == 3 && y == 4   ){
-                    continue;
-                }
-                HexSlotActor hexSlotActor = new HexSlotActor(texture, x, y);
-                boardGroup.addActor(hexSlotActor);
-                stage.addActor(boardGroup);
-            }
-        }
-        boardGroup.setPosition(ScreenParams.BOARD_X + 45, ScreenParams.BOARD_Y + 35);
+        stage.addActor(boardGroup);
     }
+
+
 
     @Override
     public void show() {
@@ -58,7 +43,6 @@ public class CombatScreen implements Screen {
         batch.begin();
         batch.draw(background, ScreenParams.BOARD_X, ScreenParams.BOARD_Y, ScreenParams.BOARD_WIDTH, ScreenParams.BOARD_HEIGHT);
         batch.end();
-
         stage.act(delta);
         stage.draw();
     }
