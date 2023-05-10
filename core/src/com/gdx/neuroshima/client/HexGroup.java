@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Group;
 
-public class BoardGroup extends Group {
-    public BoardGroup() {
+public class HexGroup extends Group {
+    public HexGroup() {
         createHexSlots();
         setPosition(ScreenParams.BOARD_X + 45, ScreenParams.BOARD_Y + 35);
     }
