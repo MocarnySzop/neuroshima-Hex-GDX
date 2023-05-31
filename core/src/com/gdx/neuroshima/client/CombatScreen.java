@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.gdx.neuroshima.server.GameLogic;
 
 public class CombatScreen implements Screen {
     private NeuroshimaGame neuroshimaGame;
@@ -28,6 +29,8 @@ public class CombatScreen implements Screen {
         UiPanelGroup uiPanelGroup = new UiPanelGroup();
         stage.addActor(uiPanelGroup);
         uiPanelGroup.setPosition(600, 150);
+        GameLogic gameLogic = new GameLogic();
+        gameLogic.startGame();
     }
 
 

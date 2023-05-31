@@ -4,10 +4,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.gdx.neuroshima.server.bus.Bus;
+import com.gdx.neuroshima.server.bus.Event;
+import com.gdx.neuroshima.server.bus.EventHandler;
+import com.gdx.neuroshima.server.bus.EventType;
 
 import java.awt.*;
 
-public class UiPanelGroup extends Group {
+public class UiPanelGroup extends Group implements EventHandler {
     String name;
     private Label playerTurnLabel;
 
@@ -18,5 +22,13 @@ public class UiPanelGroup extends Group {
         style.fontColor = Color.BLUE;
         playerTurnLabel = new Label("test", style);
         addActor(playerTurnLabel);
+        Bus.register(this, EventType.TURN_STARTED);
+    }
+
+    @Override
+    public void handle(Event event) {
+        if(event.getEventType()== EventType.TURN_STARTED) {
+            playerTurnLabel.setText("tura gracza:" + event.getPlayer().getName());
+        }
     }
 }
