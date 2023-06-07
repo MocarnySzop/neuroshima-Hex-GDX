@@ -11,12 +11,19 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.gdx.neuroshima.server.GameLogic;
+import com.gdx.neuroshima.server.Hex;
+import com.gdx.neuroshima.server.HexType;
+import com.gdx.neuroshima.server.bus.Bus;
+import com.gdx.neuroshima.server.bus.Event;
+import com.gdx.neuroshima.server.bus.EventHandler;
+import com.gdx.neuroshima.server.bus.EventType;
 
-public class CombatScreen implements Screen {
+public class CombatScreen implements Screen, EventHandler {
     private NeuroshimaGame neuroshimaGame;
     private OrthographicCamera camera;
     private Stage stage; //doczytac o scene2d module
     private Texture background;
+    private HexGroup hexGroup;
 
     public CombatScreen(NeuroshimaGame neuroshimaGame) {
         this.neuroshimaGame = neuroshimaGame;
@@ -24,13 +31,19 @@ public class CombatScreen implements Screen {
         camera.setToOrtho(false, ScreenParams.WIDTH, ScreenParams.HEIGHT);
         stage = new Stage(new ScreenViewport(camera), neuroshimaGame.getBatch());
         background = new Texture(Gdx.files.internal("board.jpg"));
-        HexGroup hexGroup = new HexGroup();
-        stage.addActor(hexGroup);
+        BoardGroup boardGroup = new BoardGroup();
+        stage.addActor(boardGroup);
         UiPanelGroup uiPanelGroup = new UiPanelGroup();
         stage.addActor(uiPanelGroup);
         uiPanelGroup.setPosition(600, 150);
         GameLogic gameLogic = new GameLogic();
+        Bus.register(this, EventType.TURN_STARTED);
+        hexGroup = new HexGroup();
+        stage.addActor(hexGroup);
         gameLogic.startGame();
+
+
+
     }
 
 
@@ -75,6 +88,14 @@ public class CombatScreen implements Screen {
 
     @Override
     public void dispose() {
+
+    }
+
+    @Override
+    public void handle(Event event) {
+        System.out.println("nie");
+        HexActor hexActor = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
+        hexGroup.addActor(hexActor);
 
     }
 }

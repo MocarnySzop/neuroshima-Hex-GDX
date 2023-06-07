@@ -1,0 +1,8 @@
+-pokazanie kart jakie ma sie w rece
+-rozpoznawanie klikniecia w rózne miejsca
+-reczne ustawianie bazy
+-przelączenia na drugiego gracza
+-dobierania kart
+-zagranie karty
+-walka
+-rozpoznawanie przegranej

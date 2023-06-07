@@ -9,8 +9,8 @@ public class BusImplementation {
     private Map<EventType, List<EventHandler>> handlers = new HashMap<>();
 
     public BusImplementation() {
-        for (EventType type : EventType.values()) {
-            handlers.put(type, new ArrayList<>());
+        for (EventType type : EventType.values()) { //zwracanie w formie tablicy wszystkie enumy
+            handlers.put(type, new ArrayList<>()); // type - typ eventu(klucz mapy), a wartosć pusta lista czyli wartosc mapy
         }
     }
 
