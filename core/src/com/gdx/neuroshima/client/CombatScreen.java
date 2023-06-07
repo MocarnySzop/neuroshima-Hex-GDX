@@ -54,6 +54,16 @@ public class CombatScreen implements Screen, EventHandler {
     }
 
     @Override
+    public void handle(Event event) {
+        System.out.println("nie");
+        HexActor hexActor = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
+        hexGroup.addActor(hexActor);
+        HexActor hexActor2 = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
+        hexGroup.addActor(hexActor2);
+
+    }
+
+    @Override
     public void render(float delta) {
         ScreenUtils.clear(Color.GRAY);
         camera.update();
@@ -88,14 +98,6 @@ public class CombatScreen implements Screen, EventHandler {
 
     @Override
     public void dispose() {
-
-    }
-
-    @Override
-    public void handle(Event event) {
-        System.out.println("nie");
-        HexActor hexActor = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
-        hexGroup.addActor(hexActor);
 
     }
 }
