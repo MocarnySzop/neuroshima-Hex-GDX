@@ -10,7 +10,7 @@ public class HexGroup extends Group {
     public void addActor(Actor actor) {
         super.addActor(actor);
         if (before != null) {
-            actor.setPosition(0, before.getY() + 200);
+            actor.setPosition(0, before.getY() + actor.getHeight() + 10);
         }
         before = actor;
 
