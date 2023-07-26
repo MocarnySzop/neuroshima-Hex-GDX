@@ -26,6 +26,7 @@ public class CombatScreen implements Screen, EventHandler {
     private Stage stage; //doczytac o scene2d module
     private Texture background;
     private HexGroup hexGroup;
+    private BoardGroup boardGroup;
 
 
     public CombatScreen(NeuroshimaGame neuroshimaGame) {
@@ -35,7 +36,7 @@ public class CombatScreen implements Screen, EventHandler {
         stage = new Stage(new ScreenViewport(camera), neuroshimaGame.getBatch());
         Gdx.input.setInputProcessor(stage);
         background = new Texture(Gdx.files.internal("board.jpg"));
-        BoardGroup boardGroup = new BoardGroup();
+        boardGroup = new BoardGroup();
         stage.addActor(boardGroup);
         UiPanelGroup uiPanelGroup = new UiPanelGroup();
         stage.addActor(uiPanelGroup);
@@ -62,10 +63,13 @@ public class CombatScreen implements Screen, EventHandler {
         System.out.println("nie");
         HexActor hexActor = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
         hexGroup.addActor(hexActor);
+        boardGroup.configureDragAndDropTarget(hexActor.getDragAndDrop());
         HexActor hexActor2 = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
         hexGroup.addActor(hexActor2);
+        boardGroup.configureDragAndDropTarget(hexActor2.getDragAndDrop());
         HexActor hexActor3 = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
         hexGroup.addActor(hexActor3);
+        boardGroup.configureDragAndDropTarget(hexActor3.getDragAndDrop());
 
 
     }

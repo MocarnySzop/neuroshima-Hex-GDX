@@ -34,4 +34,12 @@ public class HexSlotActor extends Actor {
         batch.setColor(Color.WHITE);
     }
 
+    @Override
+    public String toString() {
+        return "HexSlotActor{" +
+                "texture=" + texture +
+                ", gridX=" + gridX +
+                ", gridY=" + gridY +
+                '}';
+    }
 }

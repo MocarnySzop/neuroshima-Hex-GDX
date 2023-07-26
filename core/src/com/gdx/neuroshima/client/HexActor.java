@@ -13,16 +13,21 @@ public class HexActor extends Actor {
     private Hex hex;
     private DragAndDrop dragAndDrop;
 
+
     public HexActor(Texture texture, Hex hex) {
         this.texture = texture;
         this.hex = hex;
         setBounds(25, 0, ScreenParams.HEX_WIDTH, ScreenParams.HEX_HEIGHT);
         dragAndDrop = new DragAndDrop(); // obiekt drag and drop zarzadza przeciaganiem
         //dragAndDrop.setDragActorPosition(getWidth() / 2, -getHeight() / 2); Centruje miejsce przeciagania na srodek hexa(domyslnie jest prawy dolny rog 0, 0)
+        configureDragAndDropSource();
+    }
+
+    private void configureDragAndDropSource() {
         dragAndDrop.addSource(new DragAndDrop.Source(this) { // ustwianie zrodla przeciagania
             @Override
             public DragAndDrop.Payload dragStart(InputEvent event, float x, float y, int pointer) {
-                dragAndDrop.setDragActorPosition(  ScreenParams.HEX_WIDTH - x  , -y); // centrowanie jest dynamicznie wyliczane na bazie miejsca gdzie zostal zlapany obrazek
+                dragAndDrop.setDragActorPosition(ScreenParams.HEX_WIDTH - x, -y); // centrowanie jest dynamicznie wyliczane na bazie miejsca gdzie zostal zlapany obrazek
                 DragAndDrop.Payload payload = new DragAndDrop.Payload(); // co jest zawartoscia rpzeciagania
                 payload.setObject(HexActor.this); // ten obiekt
                 payload.setDragActor(HexActor.this);
@@ -41,5 +46,9 @@ public class HexActor extends Actor {
                 getRotation(), 0, 0, texture.getWidth(), texture.getHeight(),
                 false, false);
         batch.setColor(Color.WHITE);
+    }
+
+    public DragAndDrop getDragAndDrop() {
+        return dragAndDrop;
     }
 }
