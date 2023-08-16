@@ -44,6 +44,10 @@ public class CombatScreen implements Screen, EventHandler {
         uiPanelGroup.setPosition(600, 150);
         GameLogic gameLogic = new GameLogic();
         Bus.register(this, EventType.TURN_STARTED);
+        ButtonActor buttonActor = new ButtonActor(background, 470, 100);
+        ButtonActor buttonActor2 = new ButtonActor(background, 1230, 100);
+        stage.addActor(buttonActor);
+        stage.addActor(buttonActor2);
         hexGroupLeft = new HexGroup();
         stage.addActor(hexGroupLeft);
         hexGroupLeft.setPosition(100,0);
