@@ -1,7 +1,7 @@
--pokazanie kart jakie ma sie w rece
--rozpoznawanie klikniecia w rózne miejsca
--reczne ustawianie bazy
--przelączenia na drugiego gracza
+-pokazanie kart jakie ma sie w rece - zrobione
+-rozpoznawanie klikniecia w rózne miejsca - zrobione
+-przelączenia na drugiego gracza po kliknieciu przycisku
+-reczne ustawianie bazy - doczytac o poczatku gry i ilosci kart
 -dobierania kart
 -zagranie karty
 -walka

@@ -24,6 +24,8 @@ public class BoardGroup extends Group {
                 public void drop(DragAndDrop.Source source, DragAndDrop.Payload payload, float v, float v1, int i) {
                     addActor(source.getActor());
                     source.getActor().setPosition(slot.getX(), slot.getY());
+                    dragAndDrop.removeSource(source);
+//
 
                 }
             });

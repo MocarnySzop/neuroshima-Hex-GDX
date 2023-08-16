@@ -7,19 +7,19 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.gdx.neuroshima.server.Hex;
 
 public class HexSlotActor extends Actor {
-   private Texture texture;
-   private int gridX;
-   private int gridY;
+    private Texture texture;
+    private int gridX;
+    private int gridY;
 
     public HexSlotActor(Texture texture, int gridX, int gridY) {
         this.texture = texture;
         this.gridX = gridX;
         this.gridY = gridY;
-        float pixelY = gridY*ScreenParams.HEX_HEIGHT * 1.03f;
-        if(gridX%2 !=0){
-            pixelY += 0.5*ScreenParams.HEX_HEIGHT;
+        float pixelY = gridY * ScreenParams.HEX_HEIGHT * 1.03f;
+        if (gridX % 2 != 0) {
+            pixelY += 0.5 * ScreenParams.HEX_HEIGHT;
         }
-        setBounds(gridX*(0.78f*ScreenParams.HEX_WIDTH),pixelY, ScreenParams.HEX_WIDTH, ScreenParams.HEX_HEIGHT);
+        setBounds(gridX * (0.78f * ScreenParams.HEX_WIDTH), pixelY, ScreenParams.HEX_WIDTH, ScreenParams.HEX_HEIGHT);
     }
 
     @Override

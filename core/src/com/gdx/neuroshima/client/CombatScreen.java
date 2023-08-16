@@ -25,8 +25,9 @@ public class CombatScreen implements Screen, EventHandler {
     private OrthographicCamera camera;
     private Stage stage; //doczytac o scene2d module
     private Texture background;
-    private HexGroup hexGroup;
+    private HexGroup hexGroupLeft;
     private BoardGroup boardGroup;
+    private HexGroup hexGroupRight;
 
 
     public CombatScreen(NeuroshimaGame neuroshimaGame) {
@@ -43,14 +44,16 @@ public class CombatScreen implements Screen, EventHandler {
         uiPanelGroup.setPosition(600, 150);
         GameLogic gameLogic = new GameLogic();
         Bus.register(this, EventType.TURN_STARTED);
-        hexGroup = new HexGroup();
-        stage.addActor(hexGroup);
+        hexGroupLeft = new HexGroup();
+        stage.addActor(hexGroupLeft);
+        hexGroupLeft.setPosition(100,0);
+        hexGroupRight = new HexGroup();
+        stage.addActor(hexGroupRight);
+        hexGroupRight.setPosition(1500, 0);
         gameLogic.startGame();
 
 
-
     }
-
 
 
     @Override
@@ -61,15 +64,16 @@ public class CombatScreen implements Screen, EventHandler {
     @Override
     public void handle(Event event) {
         System.out.println("nie");
-        HexActor hexActor = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
-        hexGroup.addActor(hexActor);
-        boardGroup.configureDragAndDropTarget(hexActor.getDragAndDrop());
-        HexActor hexActor2 = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
-        hexGroup.addActor(hexActor2);
-        boardGroup.configureDragAndDropTarget(hexActor2.getDragAndDrop());
-        HexActor hexActor3 = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")),new Hex(HexType.PAWN));
-        hexGroup.addActor(hexActor3);
-        boardGroup.configureDragAndDropTarget(hexActor3.getDragAndDrop());
+        for (int i = 0; i < 3; i++) {
+            HexActor hexActor = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")), new Hex(HexType.PAWN));
+            hexGroupLeft.addActor(hexActor);
+            boardGroup.configureDragAndDropTarget(hexActor.getDragAndDrop());
+        }
+        for (int i = 0; i < 3; i++) {
+            HexActor hexActor = new HexActor(new Texture(Gdx.files.internal("hexactor.jpg")), new Hex(HexType.PAWN));
+            hexGroupRight.addActor(hexActor);
+            boardGroup.configureDragAndDropTarget(hexActor.getDragAndDrop());
+        }
 
 
     }
